@@ -1,0 +1,419 @@
+
+.sound-map-container {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #343746;
+  border-radius: 12px;
+  background: #171a23;
+}
+
+.sound-map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  color: #c1b3ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.sound-map-live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: #9b80ff;
+}
+
+.sound-map-locate {
+  padding: 8px 12px;
+  border: 1px solid #454858;
+  border-radius: 8px;
+  background: #252938;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sound-map-locate:hover {
+  background: #35304e;
+}
+
+.sound-map {
+  width: 100%;
+  height: 340px;
+  min-height: 340px;
+  display: block;
+  z-index: 1;
+}
+
+.sound-map-marker,
+.user-map-marker {
+  background: transparent;
+  border: none;
+}
+
+.sound-map-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: #7957ed;
+  color: white;
+  box-shadow: 0 3px 12px #0005;
+  font-size: 20px;
+}
+
+.sound-map-user-pin {
+  width: 18px;
+  height: 18px;
+  border: 4px solid white;
+  border-radius: 50%;
+  background: #2587ff;
+  box-shadow: 0 0 0 7px #2587ff33;
+}
+
+.sound-map-caption {
+  padding: 12px 16px;
+  margin: 0;
+  color: #b9bfd0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.sound-popup {
+  min-width: 170px;
+  color: #222;
+}
+
+.sound-popup-label {
+  color: #7957ed;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sound-popup h3 {
+  margin: 7px 0;
+  font-size: 16px;
+}
+
+.sound-popup p {
+  margin: 5px 0 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.sound-popup-play {
+  width: 100%;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #7957ed;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.sound-popup-play:hover {
+  background: #6542d4;
+}
+
+.edit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #d9c8ff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.edit-button:hover {
+  background: rgba(167, 139, 250, 0.18);
+  transform: translateY(-2px);
+}
+
+/* ================================
+   PROXISPEAK AUDIO CARD LAYOUT FIX
+================================ */
+
+/* Prevent elements from overflowing */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Audio post card */
+.audio-card,
+.post-card,
+.moment-card,
+.sound-card {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+/* Audio thumbnail */
+.audio-card img,
+.post-card img,
+.moment-card img,
+.sound-card img,
+.audio-thumbnail {
+  flex: 0 0 112px;
+  width: 112px;
+  height: 126px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Content area */
+.audio-card-content,
+.post-content,
+.moment-content,
+.sound-content {
+  flex: 1 1 220px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Post title */
+.audio-card h2,
+.audio-card h3,
+.post-card h2,
+.post-card h3,
+.moment-card h2,
+.moment-card h3,
+.sound-card h2,
+.sound-card h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+/* Category and duration */
+.audio-card .category,
+.audio-card .duration,
+.post-card .category,
+.post-card .duration,
+.moment-card .category,
+.moment-card .duration,
+.sound-card .category,
+.sound-card .duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  line-height: 1.5;
+}
+
+/* Location and metadata */
+.audio-card .location,
+.audio-card .metadata,
+.post-card .location,
+.post-card .metadata,
+.moment-card .location,
+.moment-card .metadata,
+.sound-card .location,
+.sound-card .metadata {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+/* Action buttons */
+.audio-card .actions,
+.post-card .actions,
+.moment-card .actions,
+.sound-card .actions,
+.audio-actions,
+.post-actions {
+  position: static;
+  display: flex;
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin-top: 8px;
+}
+
+/* Button styling */
+.audio-card button,
+.post-card button,
+.moment-card button,
+.sound-card button,
+.audio-actions button,
+.post-actions button {
+  position: static;
+  flex-shrink: 0;
+  max-width: 100%;
+  min-height: 42px;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+/* Icons should not overlap text */
+.audio-card button svg,
+.post-card button svg,
+.moment-card button svg,
+.sound-card button svg {
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* Edit and delete controls */
+.audio-card .edit-button,
+.audio-card .delete-button,
+.post-card .edit-button,
+.post-card .delete-button {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Comments section */
+.comments-section {
+  width: 100%;
+  min-width: 0;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+.comments-section input,
+.comments-section textarea {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Report form */
+.report-form {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.report-form input,
+.report-form textarea,
+.report-form select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Tablet and mobile */
+@media (max-width: 768px) {
+  .audio-card,
+  .post-card,
+  .moment-card,
+  .sound-card {
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .audio-card img,
+  .post-card img,
+  .moment-card img,
+  .sound-card img,
+  .audio-thumbnail {
+    flex-basis: 84px;
+    width: 84px;
+    height: 100px;
+  }
+
+  .audio-card-content,
+  .post-content,
+  .moment-content,
+  .sound-content {
+    flex: 1 1 150px;
+  }
+
+  .audio-card .actions,
+  .post-card .actions,
+  .moment-card .actions,
+  .sound-card .actions,
+  .audio-actions,
+  .post-actions {
+    gap: 8px;
+  }
+
+  .audio-card button,
+  .post-card button,
+  .moment-card button,
+  .sound-card button {
+    min-height: 40px;
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .audio-card,
+  .post-card,
+  .moment-card,
+  .sound-card {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .audio-card img,
+  .post-card img,
+  .moment-card img,
+  .sound-card img,
+  .audio-thumbnail {
+    flex-basis: 72px;
+    width: 72px;
+    height: 84px;
+  }
+
+  .audio-card .actions,
+  .post-card .actions,
+  .moment-card .actions,
+  .sound-card .actions,
+  .audio-actions,
+  .post-actions {
+    flex-basis: 100%;
+  }
+
+  .audio-card button,
+  .post-card button,
+  .moment-card button,
+  .sound-card button {
+    min-height: 38px;
+    padding: 8px 10px;
+  }
+}
